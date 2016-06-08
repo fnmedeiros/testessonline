@@ -13,7 +13,11 @@ class CreatePersonsTable extends Migration
     public function up()
     {
         Schema::create('people', function (Blueprint $table) {
+<<<<<<< HEAD
             $table->increments('id')->unsingned;
+=======
+            $table->increments('id');
+>>>>>>> f52c187ad0496454c42ca4f11d694df67736da7f
             $table->string('name', 80);
             $table->string('cpf', 15);
             $table->string('fone', 15);

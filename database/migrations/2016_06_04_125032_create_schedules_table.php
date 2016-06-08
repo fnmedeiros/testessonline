@@ -13,7 +13,11 @@ class CreateSchedulesTable extends Migration
     public function up()
     {
         Schema::create('schedules', function (Blueprint $table) {
+<<<<<<< HEAD
             $table->increments('id')->unsingned;
+=======
+            $table->increments('id');
+>>>>>>> f52c187ad0496454c42ca4f11d694df67736da7f
             $table->string('day_week', 20);
             $table->time('begin');
             $table->time('final');

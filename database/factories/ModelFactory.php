@@ -45,5 +45,6 @@ $factory->define(App\Doctor::class, function(Faker\Generator $faker){
         'specialty_id'  => function() {
             return factory(App\Specialty::class)->create()->id;
         }
+
     ];
 });

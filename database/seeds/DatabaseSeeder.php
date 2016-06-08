@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
         //$this->call(SpecialtiesTableSeeder::class, 8);
         $this->call(DoctorsTableSeeder::class);
 
+
         Model::reguard();
     }
 }
