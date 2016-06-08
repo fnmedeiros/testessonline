@@ -13,19 +13,11 @@ class CreateAttendancesTable extends Migration
     public function up()
     {
         Schema::create('attendances', function (Blueprint $table) {
-<<<<<<< HEAD
             $table->increments('id')->unsingned;
             $table->unsignedInteger('health_center_id');
-                    $table->foreign('health_center_id')->references('id')->on('health_centers');
+            $table->foreign('health_center_id')->references('id')->on('health_centers');
             $table->unsignedInteger('doctor_id');
-                    $table->foreign('doctor_id')->references('id')->on('doctors');
-=======
-            $table->increments('id');
-            $table->unsignedInteger('health_center_id');
-                    $table->foreign('health_center_id')->references('id')->on('health_centers');
-            $table->unsignedInteger('doctor_id');
-                    $table->foreign('doctor_id')->references('id')->on('docttors');
->>>>>>> f52c187ad0496454c42ca4f11d694df67736da7f
+            $table->foreign('doctor_id')->references('id')->on('doctors');
             $table->timestamps();
         });
     }

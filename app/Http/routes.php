@@ -10,15 +10,11 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-<<<<<<< HEAD
- use Illuminate\Http\Request;
-=======
->>>>>>> f52c187ad0496454c42ca4f11d694df67736da7f
+
 
 Route::get('/', function () {
     return view('welcome');
 });
-<<<<<<< HEAD
 
 Route::get('/teste', function () {
     //echo "tesste";
@@ -40,6 +36,3 @@ Route::group(['prefix'=>'api'],function(){
 	});
 
 });
-
-=======
->>>>>>> f52c187ad0496454c42ca4f11d694df67736da7f
