@@ -15,10 +15,13 @@ class CreateAttendancesTable extends Migration
         Schema::create('attendances', function (Blueprint $table) {
             $table->increments('id')->unsingned;
             $table->unsignedInteger('health_center_id');
-            $table->foreign('health_center_id')->references('id')->on('health_centers');
             $table->unsignedInteger('doctor_id');
-            $table->foreign('doctor_id')->references('id')->on('doctors');
+            $table->unsignedInteger('specialty_id');
             $table->timestamps();
+
+            $table->foreign('health_center_id')->references('id')->on('health_centers');
+            $table->foreign('doctor_id')->references('id')->on('doctors');
+            $table->foreign('specialty_id')->references('id')->on('specialties');
         });
     }
 
@@ -33,6 +36,7 @@ class CreateAttendancesTable extends Migration
                     //
                     $table->dropForeign('attendances_health_center_id_foreign');
                     $table->dropForeign('attendances_doctor_id_foreign');
+                    $table->dropForeign('attendances_specialty_id_foreign');
                 });
         Schema::drop('attendances');
     }

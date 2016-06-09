@@ -16,8 +16,8 @@ class CreateDoctorsTable extends Migration
             $table->increments('id')->unsingned;
             $table->unsignedInteger('person_id');
             $table->foreign('person_id')->references('id')->on('people');
-            $table->unsignedInteger('specialty_id')->nullable();
-            $table->foreign('specialty_id')->references('id')->on('specialties');
+            //$table->unsignedInteger('specialty_id')->nullable();
+            //$table->foreign('specialty_id')->references('id')->on('specialties');
             $table->unsignedInteger('crm');
             $table->timestamps();
         });
@@ -33,7 +33,7 @@ class CreateDoctorsTable extends Migration
         Schema::table('doctors', function (Blueprint $table) {
                     //
                     $table->dropForeign('doctors_person_id_foreign');
-                    $table->dropForeign('doctors_specialty_id_foreign');
+                    //$table->dropForeign('doctors_specialty_id_foreign');
                 });
         Schema::drop('doctors');    
     }
