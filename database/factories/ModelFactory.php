@@ -40,3 +40,10 @@ $factory->define(App\Doctor::class, function(Faker\Generator $faker) {
         'crm' => $faker->numberBetween(0, 5)
     ];
 });
+
+$factory->define(App\Health_Center::class, function(Faker\Generator $faker) {
+    return [
+        'name'    => $faker->name,
+        'address' => $faker->address
+    ];
+});
