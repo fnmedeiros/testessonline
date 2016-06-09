@@ -36,7 +36,7 @@ $factory->define(App\Specialty::class, function(Faker\Generator $faker) {
 $factory->define(App\Doctor::class, function(Faker\Generator $faker) {
     return[
         'person_id' => factory(App\Person::class)->create()->id,
-        'specialty_id' => factory(App\Specialty::class)->create()->id,
+        //'specialty_id' => factory(App\Specialty::class)->create()->id,
         'crm' => $faker->numberBetween(0, 5)
     ];
 });

@@ -19,4 +19,9 @@ class Doctor extends Model
     {
     	return $this->belongsToMany(Health_Center::class, 'doctors_health_centers', 'doctor_id', 'health_center_id');
     }
+
+    public function specialties()
+    {
+    	return $this->belongsToMany(Health_Center::class, 'doctors_specialties', 'doctor_id', 'specialty_id');
+    }
 }

@@ -14,9 +14,16 @@ class DoctorsSpecialties extends Migration
     {
         Schema::create('doctors_specialties', function (Blueprint $table) {
                     $table->unsignedInteger('doctor_id');
-                    $table->foreign('doctor_id')->references('id')->on('doctors');
                     $table->unsignedInteger('specialty_id');
-                    $table->foreign('specialty_id')->references('id')->on('specialties');
+
+                    $table->primary(['doctor_id', 'specialty_id']);
+
+                    $table->foreign('doctor_id')->references('id')->on('doctors')
+                        ->onUpdated('cascade')
+                        ->onDelete('cascade');
+                    $table->foreign('specialty_id')->references('id')->on('specialties')
+                        ->onUpdated('cascade')
+                        ->onDelete('cascade');
                 });
     }
 

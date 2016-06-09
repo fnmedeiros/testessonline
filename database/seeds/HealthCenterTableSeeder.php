@@ -12,6 +12,6 @@ class HealthCenterTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Health_Center::class,2)->create();
+        factory(Health_Center::class,3)->create();
     }
 }

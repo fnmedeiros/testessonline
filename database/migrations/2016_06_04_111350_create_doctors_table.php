@@ -16,7 +16,7 @@ class CreateDoctorsTable extends Migration
             $table->increments('id')->unsingned;
             $table->unsignedInteger('person_id');
             $table->foreign('person_id')->references('id')->on('people');
-            $table->unsignedInteger('specialty_id');
+            $table->unsignedInteger('specialty_id')->nullable();
             $table->foreign('specialty_id')->references('id')->on('specialties');
             $table->unsignedInteger('crm');
             $table->timestamps();
