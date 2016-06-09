@@ -14,10 +14,14 @@ class DoctorsHealthCenters extends Migration
     {
         Schema::create('doctors_health_centers', function (Blueprint $table) {
                     $table->unsignedInteger('doctor_id');
+                    $table->unsignedInteger('health_center_id');
+
+                    $table->primary(['doctor_id', 'health_center_id']);
+
                     $table->foreign('doctor_id')->references('id')->on('doctors')
                         ->onUpdated('cascade')
                         ->onDelete('cascade');
-                    $table->unsignedInteger('health_center_id');
+
                     $table->foreign('health_center_id')->references('id')->on('health_centers')
                         ->onUpdated('cascade')
                         ->onDelete('cascade');
