@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use App\Health_Center;
+use App\Specialty;
 
 
 class Doctor extends Model
@@ -22,6 +23,6 @@ class Doctor extends Model
 
     public function specialties()
     {
-    	return $this->belongsToMany(Health_Center::class, 'doctors_specialties', 'doctor_id', 'specialty_id');
+    	return $this->belongsToMany(Specialty::class, 'doctors_specialties', 'doctor_id', 'specialty_id');
     }
 }
