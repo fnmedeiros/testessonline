@@ -39,7 +39,14 @@ class PersonController extends Controller
      */
     public function store(Request $request)
     {
-        Person::create($request->all());
+        //dd($request->all());
+        //$person = Person::create($request->all());
+        if (Person::create($request->all())){
+            return response()->json('status OK',200);
+        }
+        
+        return response()->json('Erroooooo!!!!',500);
+        
         
         //return redirect(route('per.index'))
     }
@@ -64,6 +71,8 @@ class PersonController extends Controller
     public function edit($id)
     {
         $person = Person::find($id);
+
+
         //return view('backend.person.edit', compact('person'));
     }
 
@@ -76,7 +85,12 @@ class PersonController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Person::find($id)->update($request->all());
+
+        if (Person::find($id)->update($request->all())){
+            return response()->json('status OK',200);
+        }
+        
+        return response()->json('Erroooooo!!!!',500);
         
         //return redirect(route('per.index'));
     }
@@ -89,7 +103,12 @@ class PersonController extends Controller
      */
     public function destroy($id)
     {
-        Person::find($id)->where('id', $customer->person_id)->delete();
+        if (Person::find($id)->where('id', $id)->delete()){
+            return response()->json('status OK',200);
+        }
+        
+        return response()->json('Erroooooo!!!!',500);
+
         
         //return redirect(route('per.index'));
     }
