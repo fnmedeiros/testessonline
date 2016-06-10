@@ -32,12 +32,21 @@ Route::post('api/teste', function (Request $request) {
 Route::group(['prefix'=>'api'],function(){
 
 	Route::group(['prefix'=>'persons'],function(){
-		Route::get('', 				['as'=>'per.index', 'uses'=>'Api\PersonController@index']);
-		Route::get('create',        ['as' => 'per.create', 'uses' => 'Api\PersonController@create']);
-		Route::post('',         ['as' => 'per.store', 'uses' => 'Api\PersonController@store']);
+		Route::get('', 				 ['as'=>'per.index', 'uses'=>'Api\PersonController@index']);
+		Route::get('create',         ['as' => 'per.create', 'uses' => 'Api\PersonController@create']);
+		Route::post('',         	 ['as' => 'per.store', 'uses' => 'Api\PersonController@store']);
 		Route::get('{id}/edit',      ['as' => 'per.edit',   'uses' => 'Api\PersonController@edit']);
 		Route::get('{id}/destroy',   ['as' => 'per.destroy', 'uses' => 'Api\PersonController@destroy']);
 		Route::put('update/{users}', ['as' => 'per.update', 'uses' => 'Api\PersonController@update']);
+	});
+
+	Route::group(['prefix'=>'doctors'],function(){
+		Route::get('', 				 ['as'=>'doc.index', 'uses'=>'Api\DoctorController@index']);
+		Route::get('create',         ['as' => 'doc.create', 'uses' => 'Api\DoctorController@create']);
+		Route::post('',         	 ['as' => 'doc.store', 'uses' => 'Api\DoctorController@store']);
+		Route::get('{id}/edit',      ['as' => 'doc.edit',   'uses' => 'Api\DoctorController@edit']);
+		Route::get('{id}/destroy',   ['as' => 'doc.destroy', 'uses' => 'Api\DoctorController@destroy']);
+		Route::put('update/{users}', ['as' => 'doc.update', 'uses' => 'Api\DoctorController@update']);
 	});
 
 });
