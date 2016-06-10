@@ -32,7 +32,12 @@ Route::post('api/teste', function (Request $request) {
 Route::group(['prefix'=>'api'],function(){
 
 	Route::group(['prefix'=>'persons'],function(){
-		Route::get('', ['as'=>'per.index', 'uses'=>'Api\PersonController@index']);
+		Route::get('', 				['as'=>'per.index', 'uses'=>'Api\PersonController@index']);
+		Route::get('create',        ['as' => 'per.create', 'uses' => 'Api\PersonController@create']);
+		Route::post('store',         ['as' => 'per.store', 'uses' => 'Api\PersonController@store']);
+		Route::get('{id}/edit',      ['as' => 'per.edit',   'uses' => 'Api\PersonController@edit']);
+		Route::get('{id}/destroy',   ['as' => 'per.destroy', 'uses' => 'Api\PersonController@destroy']);
+		Route::put('update/{users}', ['as' => 'per.update', 'uses' => 'Api\PersonController@update']);
 	});
 
 });
