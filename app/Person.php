@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Doctor;
 
 class Person extends Model
 {
@@ -22,4 +23,9 @@ class Person extends Model
         'state',
         'date_birth'
     ];
+
+    public function doctor()
+    {
+        return $this->hasOne('App\Doctor');
+    }
 }
