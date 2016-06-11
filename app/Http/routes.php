@@ -67,4 +67,13 @@ Route::group(['prefix'=>'api'],function(){
 		Route::put('update/{users}', ['as' => 'spec.update', 'uses' => 'Api\SpecialtyController@update']);
 	});
 
+	Route::group(['prefix'=>'attendance'],function(){
+		Route::get('', 				 ['as'=>'att.index', 'uses'=>'Api\AttendanceController@index']);
+		Route::get('create',         ['as' => 'att.create', 'uses' => 'Api\AttendanceController@create']);
+		Route::post('',         	 ['as' => 'att.store', 'uses' => 'Api\AttendanceController@store']);
+		Route::get('{id}/edit',      ['as' => 'att.edit',   'uses' => 'Api\AttendanceController@edit']);
+		Route::get('{id}/destroy',   ['as' => 'att.destroy', 'uses' => 'Api\AttendanceController@destroy']);
+		Route::put('update/{users}', ['as' => 'att.update', 'uses' => 'Api\AttendanceController@update']);
+	});
+
 });
