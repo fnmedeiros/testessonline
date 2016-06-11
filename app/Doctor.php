@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use App\Health_Center;
 use App\Specialty;
 use App\Person;
+use App\Attendance;
 
 
 class Doctor extends Model
@@ -30,5 +31,10 @@ class Doctor extends Model
     public function person()
     {
         return $this->belongsTo('App\Person');
+    }
+
+    public function attendances()
+    {
+        return $this->hasMany('App\Attendance');
     }
 }

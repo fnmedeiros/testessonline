@@ -14,5 +14,10 @@ class Specialty extends Model
     {
         return $this->belongsToMany(Doctor::class, 'doctors_specialties','specialty_id', 'doctor_id');
     }
+
+    public function attendances()
+    {
+        return $this->hasMany('App\Attendance');
+    }
 }
 
