@@ -58,4 +58,13 @@ Route::group(['prefix'=>'api'],function(){
 		Route::put('update/{users}', ['as' => 'hc.update', 'uses' => 'Api\HealthCenterController@update']);
 	});
 
+	Route::group(['prefix'=>'specialty'],function(){
+		Route::get('', 				 ['as'=>'spec.index', 'uses'=>'Api\SpecialtyController@index']);
+		Route::get('create',         ['as' => 'spec.create', 'uses' => 'Api\SpecialtyController@create']);
+		Route::post('',         	 ['as' => 'spec.store', 'uses' => 'Api\SpecialtyController@store']);
+		Route::get('{id}/edit',      ['as' => 'spec.edit',   'uses' => 'Api\SpecialtyController@edit']);
+		Route::get('{id}/destroy',   ['as' => 'spec.destroy', 'uses' => 'Api\SpecialtyController@destroy']);
+		Route::put('update/{users}', ['as' => 'spec.update', 'uses' => 'Api\SpecialtyController@update']);
+	});
+
 });
