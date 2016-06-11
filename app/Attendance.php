@@ -13,7 +13,9 @@ class Attendance extends Model
 {
     protected $fillable = [
         'health_center_id',
-        'doctor_id'
+        'doctor_id',
+        'specialty_id'
+
     ];
 
     public function shedules()

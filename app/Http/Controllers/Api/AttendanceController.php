@@ -39,6 +39,7 @@ class AttendanceController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request->all());
         if (Attendance::create($request->all())){
             return response()->json('status OK',200);
         }
