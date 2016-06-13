@@ -112,4 +112,19 @@ class HealthCenterController extends Controller
         
         //return redirect(route('hc.index'));
     }
+
+    public function showDoctor($id)
+    {
+        
+        $hc = Health_Center::find($id);
+        dd($hc->doctors());
+    }
+
+    public function addDoctor(Request $request)
+    {
+        Health_Center::find($request->id)->doctors()->attach($request->med_id);
+        $hc = Health_Center::find($request->id);
+        dd($hc->doctors());
+        //echo "teste";
+    }
 }
