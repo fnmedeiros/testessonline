@@ -86,4 +86,13 @@ Route::group(['prefix'=>'api'],function(){
 		Route::put('update/{users}', ['as' => 'att.update', 'uses' => 'Api\AttendanceController@update']);
 	});
 
+	Route::group(['prefix'=>'shedules'],function(){
+		Route::get('', 				 ['as'=>'shed.index', 'uses'=>'Api\SchedulesController@index']);
+		Route::get('create',         ['as' => 'shed.create', 'uses' => 'Api\SchedulesController@create']);
+		Route::post('',         	 ['as' => 'shed.store', 'uses' => 'Api\SchedulesController@store']);
+		Route::get('{id}/edit',      ['as' => 'shed.edit',   'uses' => 'Api\SchedulesController@edit']);
+		Route::get('{id}/destroy',   ['as' => 'shed.destroy', 'uses' => 'Api\SchedulesController@destroy']);
+		Route::put('update/{users}', ['as' => 'shed.update', 'uses' => 'Api\SchedulesController@update']);
+	});
+
 });
