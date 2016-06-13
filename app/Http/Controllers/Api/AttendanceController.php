@@ -111,4 +111,19 @@ class AttendanceController extends Controller
         
         //return redirect(route('att.index'));
     }
+
+    public function showSchedule($id)
+    {
+        
+        $att = Attendance::find($id);
+        dd($att->schedules());
+    }
+
+    public function addSchedule(Request $request)
+    {
+        Attendance::find($request->id)->schedules()->attach($request->sched_id);
+        $att = Attendance::find($request->id);
+        dd($att->schedules());
+        //echo "teste";
+    }
 }

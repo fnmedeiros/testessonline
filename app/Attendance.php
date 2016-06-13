@@ -18,7 +18,7 @@ class Attendance extends Model
 
     ];
 
-    public function shedules()
+    public function schedules()
     {
     	return $this->belongsToMany(Schedule::class, 'attendances_schedules', 'attendance_id', 'schedule_id');
     }

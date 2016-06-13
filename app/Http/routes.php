@@ -84,6 +84,11 @@ Route::group(['prefix'=>'api'],function(){
 		Route::get('{id}/edit',      ['as' => 'att.edit',   'uses' => 'Api\AttendanceController@edit']);
 		Route::get('{id}/destroy',   ['as' => 'att.destroy', 'uses' => 'Api\AttendanceController@destroy']);
 		Route::put('update/{users}', ['as' => 'att.update', 'uses' => 'Api\AttendanceController@update']);
+
+		Route::group(['prefix'=>'addSchedule'], function(){
+			Route::get('{id}', 	 	 ['as' => 'att.sched', 'uses' =>'Api\AttendanceController@showSchedule']);
+			Route::post('', 	 	 ['as' => 'att.addSched', 'uses' =>'Api\AttendanceController@addSchedule']);
+		});	
 	});
 
 	Route::group(['prefix'=>'shedules'],function(){
