@@ -47,6 +47,11 @@ Route::group(['prefix'=>'api'],function(){
 		Route::get('{id}/edit',      ['as' => 'doc.edit',   'uses' => 'Api\DoctorController@edit']);
 		Route::get('{id}/destroy',   ['as' => 'doc.destroy', 'uses' => 'Api\DoctorController@destroy']);
 		Route::put('update/{users}', ['as' => 'doc.update', 'uses' => 'Api\DoctorController@update']);
+
+		Route::group(['prefix'=>'addSpec'], function(){
+			Route::get('{id}', 	 	 ['as' => 'doc.spec', 'uses' =>'Api\DoctorController@showSpec']);
+			Route::post('', 	 	 ['as' => 'doc.addSpec', 'uses' =>'Api\DoctorController@addSpec']);
+		});	
 	});
 
 	Route::group(['prefix'=>'health-centers'],function(){

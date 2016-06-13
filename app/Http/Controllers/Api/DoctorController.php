@@ -106,4 +106,19 @@ class DoctorController extends Controller
         }
         //return redirect(route('doc.index'));
     }
+
+    public function showSpec($id)
+    {
+        
+        $doc = Doctor::find($id);
+        dd($doc->specialties());
+    }
+
+    public function addSpec(Request $request)
+    {
+        Doctor::find($request->id)->specialties()->attach($request->spec_id);
+        $doc = Doctor::find($request->id);
+        dd($doc->specialties());
+        //echo "teste";
+    }
 }
