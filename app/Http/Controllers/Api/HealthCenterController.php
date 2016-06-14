@@ -116,8 +116,9 @@ class HealthCenterController extends Controller
     public function showDoctor($id)
     {
         
-        $hc = Health_Center::find($id);
-        dd($hc->doctors());
+        $doctors = Health_Center::find($id);
+        dd($doctors->doctors);
+        return view('backend.healthCenter.showDoctor', ['doctors'=>$doctors->doctors]);
     }
 
     public function addDoctor(Request $request)
