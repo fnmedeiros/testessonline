@@ -19,7 +19,8 @@ class DoctorController extends Controller
     public function index()
     {
         $doctor=Doctor::all();
-        return response()->json($doctor, 200);
+        //return response()->json($doctor, 200);
+        return view('backend.doctors.show', ['doctors'=>$doctor]);
     }
 
     /**
@@ -110,8 +111,9 @@ class DoctorController extends Controller
     public function showSpec($id)
     {
         
-        $doc = Doctor::find($id);
-        dd($doc->specialties());
+        $specialties = Doctor::find($id)->specialties();
+        dd($specialties);
+        return view('backend.doctors.showSpec', ['specialties'=>$specialties]);
     }
 
     public function addSpec(Request $request)
