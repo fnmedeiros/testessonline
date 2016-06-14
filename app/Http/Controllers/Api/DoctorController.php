@@ -111,9 +111,9 @@ class DoctorController extends Controller
     public function showSpec($id)
     {
         
-        $specialties = Doctor::find($id)->specialties();
-        dd($specialties);
-        return view('backend.doctors.showSpec', ['specialties'=>$specialties]);
+        $specialties = Doctor::find($id);
+        //dd($specialties->specialties);
+        return view('backend.doctors.showSpec', ['specialties'=>$specialties->specialties]);
     }
 
     public function addSpec(Request $request)

@@ -7,12 +7,11 @@
     </thead>
 
     <tbody>
-        <?php foreach ($specialties as $specialty){?>
+        <?php foreach($specialties as $specialty): ?>
         <tr>
-        <?php dd($specialty);?>
-            <td><?=$specialty->specialty_id?></td>
-            <td><?=$specialty->specialty_id?></td>                                
+            <td><?=$specialty->id?></td>
+            <td><?=$specialty->name?></td>                                
         </tr>
-        <?php };?>
+        <?php endforeach;?>
     </tbody>
 </table>
