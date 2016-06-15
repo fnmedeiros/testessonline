@@ -48,7 +48,7 @@ Route::group(['prefix'=>'api'],function(){
 		Route::get('{id}/destroy',   ['as' => 'doc.destroy', 'uses' => 'Api\DoctorController@destroy']);
 		Route::put('update/{users}', ['as' => 'doc.update', 'uses' => 'Api\DoctorController@update']);
 
-		Route::group(['prefix'=>'addSpec'], function(){
+		Route::group(['prefix'=>'specialties'], function(){
 			Route::get('{id}', 	 	 ['as' => 'doc.spec', 'uses' =>'Api\DoctorController@showSpec']);
 			Route::post('', 	 	 ['as' => 'doc.addSpec', 'uses' =>'Api\DoctorController@addSpec']);
 		});	
@@ -62,7 +62,7 @@ Route::group(['prefix'=>'api'],function(){
 		Route::get('{id}/destroy',   ['as' => 'hc.destroy', 'uses' => 'Api\HealthCenterController@destroy']);
 		Route::put('update/{users}', ['as' => 'hc.update', 'uses' => 'Api\HealthCenterController@update']);
 
-		Route::group(['prefix'=>'addDoctor'], function(){
+		Route::group(['prefix'=>'doctors'], function(){
 			Route::get('{id}', 	 	 ['as' => 'hc.Doc', 'uses' =>'Api\HealthCenterController@showDoctor']);
 			Route::post('', 	 	 ['as' => 'hc.addDoc', 'uses' =>'Api\HealthCenterController@addDoctor']);
 		});		
@@ -85,7 +85,7 @@ Route::group(['prefix'=>'api'],function(){
 		Route::get('{id}/destroy',   ['as' => 'att.destroy', 'uses' => 'Api\AttendanceController@destroy']);
 		Route::put('update/{users}', ['as' => 'att.update', 'uses' => 'Api\AttendanceController@update']);
 
-		Route::group(['prefix'=>'addSchedule'], function(){
+		Route::group(['prefix'=>'shedules'], function(){
 			Route::get('{id}', 	 	 ['as' => 'att.sched', 'uses' =>'Api\AttendanceController@showSchedule']);
 			Route::post('', 	 	 ['as' => 'att.addSched', 'uses' =>'Api\AttendanceController@addSchedule']);
 		});	

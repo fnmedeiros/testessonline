@@ -114,9 +114,9 @@ class AttendanceController extends Controller
 
     public function showSchedule($id)
     {
-        
-        $att = Attendance::find($id);
-        dd($att->schedules());
+        $schedules = Attendance::find($id);
+        //dd($schedules->schedules);
+        return view('backend.attendances.showSched', ['schedules'=>$schedules->schedules]);        
     }
 
     public function addSchedule(Request $request)
